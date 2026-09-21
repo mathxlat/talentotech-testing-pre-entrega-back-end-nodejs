@@ -10,6 +10,6 @@ const [
     category = "",
 ] = process.argv.slice(2);
 
-makeRequest(url, method, resource, title, price, category)
+makeRequest(url, method, resource, { title, price, category })
     .then((result) => console.log(result))
     .catch((error) => console.error(error.message));

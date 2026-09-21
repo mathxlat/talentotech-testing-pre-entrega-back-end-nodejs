@@ -1,11 +1,4 @@
-export const makeRequest = async (
-    url,
-    method,
-    resource,
-    title,
-    price,
-    category,
-) => {
+export const makeRequest = async (url, method, resource, body) => {
     try {
         const options = {
             method,
@@ -15,11 +8,7 @@ export const makeRequest = async (
         };
 
         if (method !== "GET" && method !== "DELETE") {
-            options.body = JSON.stringify({
-                title,
-                price,
-                category,
-            });
+            options.body = JSON.stringify(body);
         }
 
         const response = await fetch(`${url}/${resource}`, options);
